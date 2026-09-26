@@ -2,6 +2,7 @@ package Presentation;
 
 import annotation.Controller;
 import annotation.UrlMapping;
+import annotation.WebAPI;
 import Utils.ModelAndView;
 import org.springframework.context.ApplicationContext;
 import Service.MessageService;
@@ -38,10 +39,15 @@ public class A {
         System.out.println("methode replace éxécuté avec succes");
 
     }
-
+    @WebAPI
     @UrlMapping("/andrana")
-    public void andrana(Object springContext) {
+    public Map<String, String> andrana(Object springContext) {
         System.out.println("methode andrana éxécuté avec succes");
+       
+        ApplicationContext context = (ApplicationContext) springContext;
+        MessageService messageService = context.getBean(MessageService.class);
 
+        Map<String, String> infosAccueil = messageService.getInfosAccueil();
+        return infosAccueil;
     }
 }
