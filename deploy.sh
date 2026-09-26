@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_NAME="AppTest"
+APP_NAME="AppTestMyFramework"
 SRC_DIR="src/main/java"
 WEB_DIR="src/main/webapp"
 BUILD_DIR="build"
@@ -23,7 +23,7 @@ mkdir -p $BUILD_DIR/WEB-INF/lib
 
 #  AJOUT : Copier le JAR de ton framework dans le dossier de build du WAR
 if [ -d "$LIB_DIR" ]; then
-    cp -f $LIB_DIR/*.jar $BUILD_DIR/WEB-INF/lib/
+    cp -f $LIB_DIR/* $BUILD_DIR/WEB-INF/lib/
     echo "Tous les fichiers JAR ont été copiés dans WEB-INF/lib."
 else
     echo "Erreur : Le dossier $LIB_DIR n'existe pas."
@@ -33,7 +33,7 @@ fi
 # Compilation des fichiers Java de ton AppTest
 find $SRC_DIR -name "*.java" > sources.txt
 # On inclut le framework dans le classpath au cas où ton AppTest en a besoin pour compiler
-javac -cp "$SERVLET_API_JAR:$CONN_API_JAR:$FRAMEWORK_JAR:$LIB_DIR/*" -d $BUILD_DIR/WEB-INF/classes @sources.txt 2>/dev/null
+javac -cp "$SERVLET_API_JAR:$CONN_API_JAR:$FRAMEWORK_JAR:$LIB_DIR/*" -d $BUILD_DIR/WEB-INF/classes @sources.txt 
 rm sources.txt
 
 # Copier les fichiers web (web.xml, JSP, etc.)
