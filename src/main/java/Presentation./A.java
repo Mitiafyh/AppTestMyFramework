@@ -39,6 +39,7 @@ public class A {
         System.out.println("methode replace éxécuté avec succes");
 
     }
+
     @WebAPI
     @UrlMapping("/andrana")
     public Map<String, String> andrana(Object springContext) {
@@ -49,5 +50,20 @@ public class A {
 
         Map<String, String> infosAccueil = messageService.getInfosAccueil();
         return infosAccueil;
+    }
+
+    @UrlMapping(value = "/form", method = "GET")
+    public ModelAndView form(Object springContext){
+
+        ModelAndView mv = new ModelAndView("form");
+        return mv;
+    }
+
+    @UrlMapping(value = "/save", method = "POST")
+    public void save(String nom, String prenom){
+        System.out.println("methode save éxécuté avec succes");
+        System.out.println("Nom: " + nom);
+        System.out.println("Prenom: " + prenom);
+        
     }
 }
