@@ -33,7 +33,7 @@ fi
 # Compilation des fichiers Java de ton AppTest
 find $SRC_DIR -name "*.java" > sources.txt
 # On inclut le framework dans le classpath au cas où ton AppTest en a besoin pour compiler
-javac -cp "$SERVLET_API_JAR:$CONN_API_JAR:$FRAMEWORK_JAR:$LIB_DIR/*" -d $BUILD_DIR/WEB-INF/classes @sources.txt 
+javac -parameters -cp "$SERVLET_API_JAR:$CONN_API_JAR:$FRAMEWORK_JAR:$LIB_DIR/*" -d $BUILD_DIR/WEB-INF/classes @sources.txt 
 rm sources.txt
 
 # Copier les fichiers web (web.xml, JSP, etc.)
