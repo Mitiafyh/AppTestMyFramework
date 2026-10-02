@@ -1,14 +1,2 @@
 tail -f /home/fiorenantsoa/Documents/tomcat/tomcat/logs/catalina.out
 
-comment faire
-comment demarrer le conteneur spring au demarrage de mon application?
--config avec listeneur
--pour cela il faut un  listeneur avec le fichier de config du spring à declarer dans web.xml(ex: WEB-INF applicationContext.xml)
-
--on doit donc avoir un seul conteneur spring demarré au moment du  demarrage de l'app web
-
-l'instanciation de mon controlleur que j'ai cree nwe doit pas changer
-
--c'est a l'interieur le l'applicationcontext du spring (config) ou par annotation qu'on declare le service et repository et dans les controlleur, on appele les context spring , peut etre qy'on appelle les getBean et les service (on fait que le conteneur spring soit disponible dans les methode d' actions)
-
-ex: si on a une methode listner on lui donne un parametre applicationcontext

@@ -12,7 +12,7 @@ import java.util.Map;
 public class A {
 
     @UrlMapping(value = "/login", method = "POST")
-    public ModelAndView login(Object springContext) {
+    public ModelAndView login(ApplicationContext springContext) {
         System.out.println("methode login éxécuté avec succes");
 
         ApplicationContext context = (ApplicationContext) springContext;
@@ -29,20 +29,20 @@ public class A {
 
 
     @UrlMapping(value = "/login", method = "GET")
-    public void login2(Object springContext) {
+    public void login2(ApplicationContext springContext) {
         System.out.println("methode login2 éxécuté avec succes");
 
     }
 
     @UrlMapping("/replace")
-    public void replace(Object springContext) {
+    public void replace(ApplicationContext springContext) {
         System.out.println("methode replace éxécuté avec succes");
 
     }
 
     @WebAPI
     @UrlMapping("/andrana")
-    public Map<String, String> andrana(Object springContext) {
+    public Map<String, String> andrana(ApplicationContext springContext) {
         System.out.println("methode andrana éxécuté avec succes");
        
         ApplicationContext context = (ApplicationContext) springContext;
@@ -53,7 +53,7 @@ public class A {
     }
 
     @UrlMapping(value = "/form", method = "GET")
-    public ModelAndView form(Object springContext){
+    public ModelAndView form(ApplicationContext springContext){
 
         ModelAndView mv = new ModelAndView("form");
         return mv;
