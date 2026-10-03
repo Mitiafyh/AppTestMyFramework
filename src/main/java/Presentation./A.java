@@ -59,11 +59,17 @@ public class A {
         return mv;
     }
 
+    @WebAPI
     @UrlMapping(value = "/save", method = "POST")
-    public void save(String nom, String prenom){
+    public Etudiant save(Etudiant etudiant, ApplicationContext springContext) {
         System.out.println("methode save éxécuté avec succes");
-        System.out.println("Nom: " + nom);
-        System.out.println("Prenom: " + prenom);
-        
+
+        ApplicationContext context = (ApplicationContext) springContext;
+        MessageService messageService = context.getBean(MessageService.class);
+
+        Etudiant etudiantInfo = messageService.getEtudiantInfos(etudiant);
+        return etudiantInfo;
     }
+
+    
 }

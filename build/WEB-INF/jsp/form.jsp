@@ -11,6 +11,11 @@
         <input type="text" name="nom" id="nom" placeholder="nom">
         <label for="prenom">Prenom:</label>
         <input type="text" name="prenom" id="prenom" placeholder="prenom">
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" placeholder="age">
+        <label for="moyenne">Moyenne:</label>
+        <input type="number" name="moyenne" id="moyenne" placeholder="moyenne" step="0.01">
+
         <input type="submit" value="save">
     </form>
 </body>
