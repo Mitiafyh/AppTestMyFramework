@@ -1,4 +1,5 @@
 package Repository;
+import Presentation.Etudiant;
 import org.springframework.stereotype.Repository;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,5 +12,8 @@ public class MessageRepository {
         bdd.put("msg", "Mandeha tsara ny Spring sy ny Framework-ko !");
         bdd.put("status", "Connecté à la BDD via Spring");
         return bdd;
+    }
+    public Etudiant getEtudiantInfos(Etudiant etudiant) {
+        return etudiant;
     }
 }

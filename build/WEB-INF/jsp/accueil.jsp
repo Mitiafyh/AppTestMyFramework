@@ -7,8 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Page de test</h1>
+    <!-- <h1>Page de test</h1>
     <p>Message : <%= request.getAttribute("message") %></p>
-    <p>Status : <%= request.getAttribute("status") %></p>
+    <p>Status : <%= request.getAttribute("status") %></p> -->
+
+    <p>Nom : <%= request.getAttribute("etudiant.nom") %></p>
+    <p>Prenom : <%= request.getAttribute("etudiant.prenom") %></p>
+    <p>Age : <%= request.getAttribute("etudiant.age") %></p>
+    <p>Moyenne : <%= request.getAttribute("etudiant.moyenne") %></p>
+
+
 </body>
 </html>
