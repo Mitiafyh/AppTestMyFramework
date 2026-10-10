@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import Service.MessageService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -65,8 +66,25 @@ public class A {
     public ResponseData save(Etudiant etudiant, Parent parent, ApplicationContext springContext) {
         System.out.println("methode save éxécuté avec succes");
 
-       
-        return new ResponseData(etudiant,parent);
+        return new ResponseData(etudiant, parent);
     }
 
+    @UrlMapping(value = "/formList", method = "GET")
+    public ModelAndView formList(ApplicationContext springContext) {
+
+        ModelAndView mv = new ModelAndView("formList");
+        return mv;
+    }
+
+    @WebAPI
+    @UrlMapping(value = "/saveList", method = "POST")
+    public List<Etudiant> saveList(List<Etudiant> etudiants, ApplicationContext springContext) {
+        System.out.println("methode save éxécuté avec succes");
+        if (etudiants != null) {
+            for (Etudiant e : etudiants) {
+                System.out.println("Étudiant reçu -> Nom : " + e.getNom() + ", Âge : " + e.getAge());
+            }
+        }
+        return etudiants;
+    }
 }
