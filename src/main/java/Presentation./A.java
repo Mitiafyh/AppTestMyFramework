@@ -87,4 +87,22 @@ public class A {
         }
         return etudiants;
     }
+
+    @UrlMapping(value = "/formExtends", method = "GET")
+    public ModelAndView formExtends(ApplicationContext springContext) {
+
+        ModelAndView mv = new ModelAndView("formExtends");
+        return mv;
+    }
+    @WebAPI 
+     @UrlMapping(value = "/saveExtends", method = "POST")
+    public Employe saveList(Employe employe, ApplicationContext springContext) {
+        System.out.println("methode save éxécuté avec succes");
+        if (employe != null) {
+          
+                System.out.println("Employe reçu -> Nom : " + employe.getPersonne().getNom() + ", Âge : " + employe.getPersonne().getAge() +",Poste : " + employe.getPoste() );
+            
+        }
+        return employe;
+    }
 }
