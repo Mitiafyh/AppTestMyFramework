@@ -6,6 +6,8 @@ import annotation.WebAPI;
 import Utils.ModelAndView;
 import org.springframework.context.ApplicationContext;
 import Service.MessageService;
+
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -27,7 +29,6 @@ public class A {
         return mv;
     }
 
-
     @UrlMapping(value = "/login", method = "GET")
     public void login2(ApplicationContext springContext) {
         System.out.println("methode login2 éxécuté avec succes");
@@ -44,7 +45,7 @@ public class A {
     @UrlMapping("/andrana")
     public Map<String, String> andrana(ApplicationContext springContext) {
         System.out.println("methode andrana éxécuté avec succes");
-       
+
         ApplicationContext context = (ApplicationContext) springContext;
         MessageService messageService = context.getBean(MessageService.class);
 
@@ -53,7 +54,7 @@ public class A {
     }
 
     @UrlMapping(value = "/form", method = "GET")
-    public ModelAndView form(ApplicationContext springContext){
+    public ModelAndView form(ApplicationContext springContext) {
 
         ModelAndView mv = new ModelAndView("form");
         return mv;
@@ -61,15 +62,11 @@ public class A {
 
     @WebAPI
     @UrlMapping(value = "/save", method = "POST")
-    public Etudiant save(Etudiant etudiant, ApplicationContext springContext) {
+    public ResponseData save(Etudiant etudiant, Parent parent, ApplicationContext springContext) {
         System.out.println("methode save éxécuté avec succes");
 
-        ApplicationContext context = (ApplicationContext) springContext;
-        MessageService messageService = context.getBean(MessageService.class);
-
-        Etudiant etudiantInfo = messageService.getEtudiantInfos(etudiant);
-        return etudiantInfo;
+       
+        return new ResponseData(etudiant,parent);
     }
 
-    
 }
