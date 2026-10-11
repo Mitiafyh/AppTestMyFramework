@@ -95,7 +95,7 @@ public class A {
         return mv;
     }
     @WebAPI 
-     @UrlMapping(value = "/saveExtends", method = "POST")
+    @UrlMapping(value = "/saveExtends", method = "POST")
     public Employe saveList(Employe employe, ApplicationContext springContext) {
         System.out.println("methode save éxécuté avec succes");
         if (employe != null) {
