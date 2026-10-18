@@ -4,6 +4,8 @@ import annotation.Controller;
 import annotation.UrlMapping;
 import annotation.WebAPI;
 import Utils.ModelAndView;
+import Utils.Utilitaire;
+
 import org.springframework.context.ApplicationContext;
 import Service.MessageService;
 
@@ -94,15 +96,44 @@ public class A {
         ModelAndView mv = new ModelAndView("formExtends");
         return mv;
     }
-    @WebAPI 
+
+    @WebAPI
     @UrlMapping(value = "/saveExtends", method = "POST")
     public Employe saveList(Employe employe, ApplicationContext springContext) {
         System.out.println("methode save éxécuté avec succes");
         if (employe != null) {
-          
-                System.out.println("Employe reçu -> Nom : " + employe.getPersonne().getNom() + ", Âge : " + employe.getPersonne().getAge() +",Poste : " + employe.getPoste() );
-            
+
+            System.out.println("Employe reçu -> Nom : " + employe.getPersonne().getNom() + ", Âge : "
+                    + employe.getPersonne().getAge() + ",Poste : " + employe.getPoste());
+
         }
         return employe;
     }
+
+    @UrlMapping(value = "/formFile", method = "GET")
+    public ModelAndView formFile(ApplicationContext springContext) {
+
+        ModelAndView mv = new ModelAndView("formFile");
+        return mv;
+    }
+
+    @WebAPI
+    @UrlMapping(value = "/saveFile", method = "POST")
+    public EmployeFile saveFile(EmployeFile employefile, ApplicationContext springContext) {
+        System.out.println("methode save éxécuté avec succes");
+        if (employefile != null) {
+            String nomFichier = "Aucun fichier";
+
+            if (employefile.getMapfile() != null) {
+                nomFichier = employefile.getMapfile().getNom();
+                Utilitaire utilitaire = new Utilitaire();
+                utilitaire.sauvegarderMapFile(employefile.getMapfile());
+            }
+            System.out.println("Employe reçu -> Nom : " + employefile.getNom()
+                    + ", Prenom : " + employefile.getPrenom());
+
+        }
+        return employefile;
+    }
+
 }

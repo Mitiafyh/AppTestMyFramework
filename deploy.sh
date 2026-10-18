@@ -9,6 +9,7 @@ TOMCAT_DIR="/home/fiorenantsoa/Documents/tomcat/tomcat"
 TOMCAT_WEBAPPS="$HOME/Documents/tomcat/tomcat/webapps"
 CONN_API_JAR="$LIB_DIR/mysql-connector-j-8.4.0.jar"
 SERVLET_API_JAR="$LIB_DIR/servlet-api.jar"
+RESOURCES_DIR="src/main/resources"
 
 #AJOUT : Le chemin où le framework a déposé son JAR
 FRAMEWORK_JAR="$LIB_DIR/MyFrameWork.jar"
@@ -28,6 +29,10 @@ if [ -d "$LIB_DIR" ]; then
 else
     echo "Erreur : Le dossier $LIB_DIR n'existe pas."
     exit 1
+fi
+if [ -d "$RESOURCES_DIR" ]; then
+    cp -r $RESOURCES_DIR/* $BUILD_DIR/WEB-INF/classes/
+    echo "Fichiers de ressources copiés dans WEB-INF/classes."
 fi
 
 # Compilation des fichiers Java de ton AppTest
