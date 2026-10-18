@@ -4,6 +4,8 @@ import annotation.Controller;
 import annotation.UrlMapping;
 import annotation.WebAPI;
 import Utils.ModelAndView;
+import Utils.Utilitaire;
+
 import org.springframework.context.ApplicationContext;
 import Service.MessageService;
 
@@ -124,9 +126,11 @@ public class A {
 
             if (employefile.getMapfile() != null) {
                 nomFichier = employefile.getMapfile().getNom();
+                Utilitaire utilitaire = new Utilitaire();
+                utilitaire.sauvegarderMapFile(employefile.getMapfile());
             }
             System.out.println("Employe reçu -> Nom : " + employefile.getNom()
-                    + ", Prenom : " + employefile.getPrenom() );
+                    + ", Prenom : " + employefile.getPrenom());
 
         }
         return employefile;
