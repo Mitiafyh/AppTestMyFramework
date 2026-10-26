@@ -113,7 +113,7 @@ public class A {
         return employe;
     }
 
-    @Auth
+    @Auth(roles = {"Admin","User"})
     @UrlMapping(value = "/formFile", method = "GET")
     public ModelAndView formFile(ApplicationContext springContext) {
 

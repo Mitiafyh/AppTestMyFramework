@@ -47,6 +47,10 @@
                 <param-name>loginPage</param-name>
                 <param-value>formLogin</param-value>
             </init-param>
+            <init-param>
+                <param-name>roleSession</param-name>
+                <param-value>roleUser</param-value>
+            </init-param>
         </servlet>
 
     <servlet-mapping>

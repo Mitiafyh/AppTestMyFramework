@@ -16,8 +16,9 @@ public class AuthController {
         if ("admin".equals(username) && "1234".equals(password)) {
 
             session.set("userConnecte", username);
+            session.set("roleUser","User");
 
-            ModelAndView mv = new ModelAndView("formFile");
+            ModelAndView mv = new ModelAndView("redirect:/formFile");
             mv.addItem("utilisateur", username);
             return mv;
 
@@ -32,6 +33,7 @@ public class AuthController {
     @UrlMapping(value = "/logout")
     public String logout(Session session) {
         session.remove("userConnecte");
+        session.remove("roleUser");
         return "Déconnecté !";
     }
 }
