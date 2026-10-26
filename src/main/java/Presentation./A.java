@@ -1,5 +1,6 @@
 package Presentation;
 
+import annotation.Auth;
 import annotation.Controller;
 import annotation.UrlMapping;
 import annotation.WebAPI;
@@ -112,6 +113,7 @@ public class A {
         return employe;
     }
 
+    @Auth
     @UrlMapping(value = "/formFile", method = "GET")
     public ModelAndView formFile(ApplicationContext springContext) {
 

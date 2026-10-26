@@ -38,6 +38,15 @@
         <servlet>
             <servlet-name>FrontControllerServlet</servlet-name>
             <servlet-class>Presentation.FrontControllerServlet</servlet-class>
+
+            <init-param>
+                <param-name>authSessionKey</param-name>
+                <param-value>userConnecte</param-value>
+            </init-param>
+            <init-param>
+                <param-name>loginPage</param-name>
+                <param-value>formLogin</param-value>
+            </init-param>
         </servlet>
 
     <servlet-mapping>
