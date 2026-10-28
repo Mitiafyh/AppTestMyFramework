@@ -14,5 +14,8 @@
         <input type="password" name="password" id="password" placeholder="Password"><br>
         <input type="submit" value="Login">
     </form>
+<%  if(request.getAttribute("erreur") != null) { %>
+        <p style="color: red;"><%= request.getAttribute("erreur") %></p>
+<% } %>
 </body>
 </html>
